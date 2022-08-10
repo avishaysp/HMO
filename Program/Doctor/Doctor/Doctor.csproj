@@ -1,0 +1,971 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3E38268F-54A1-4A13-9375-FDD25E7DD912}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Doctor</RootNamespace>
+    <AssemblyName>Doctor</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataSetCities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetCities.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetDiseases.cs">
+      <DependentUpon>DataSetDiseases.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DataSetDiseases.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetDiseases.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetDrugs.cs">
+      <DependentUpon>DataSetDrugs.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DataSetDrugs.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetDrugs.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetOperations.cs">
+      <DependentUpon>DataSetOperations.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DataSetOperations.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetOperations.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetPatientDiseases.cs">
+      <DependentUpon>DataSetPatientDiseases.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DataSetPatientDiseases.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetPatientDiseases.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetPatientDrugs.cs">
+      <DependentUpon>DataSetPatientDrugs.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DataSetPatientDrugs.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetPatientDrugs.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetPatientOperations.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetPatientOperations.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetPatients.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetPatients.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetPatientTreats.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetPatientTreats.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetPatientVaccines.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetPatientVaccines.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetRoles.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetRoles.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetTreats.cs">
+      <DependentUpon>DataSetTreats.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DataSetTreats.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetTreats.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetUsers.cs">
+      <DependentUpon>DataSetUsers.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DataSetUsers.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetUsers.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetVaccines.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetVaccines.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetVisits.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetVisits.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FormAddCity.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddCity.Designer.cs">
+      <DependentUpon>FormAddCity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAddDisease.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddDisease.Designer.cs">
+      <DependentUpon>FormAddDisease.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAddDrug.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddDrug.Designer.cs">
+      <DependentUpon>FormAddDrug.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAddOperation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddOperation.Designer.cs">
+      <DependentUpon>FormAddOperation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAddPatiDisease.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddPatiDisease.Designer.cs">
+      <DependentUpon>FormAddPatiDisease.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAddPatiDrug.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddPatiDrug.Designer.cs">
+      <DependentUpon>FormAddPatiDrug.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAddPatient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddPatient.Designer.cs">
+      <DependentUpon>FormAddPatient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAddPatiOperation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddPatiOperation.Designer.cs">
+      <DependentUpon>FormAddPatiOperation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAddPatiTreat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddPatiTreat.Designer.cs">
+      <DependentUpon>FormAddPatiTreat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAddPatiVaccine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddPatiVaccine.Designer.cs">
+      <DependentUpon>FormAddPatiVaccine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAddRole.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddRole.Designer.cs">
+      <DependentUpon>FormAddRole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAddTreat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddTreat.Designer.cs">
+      <DependentUpon>FormAddTreat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAddUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddUser.Designer.cs">
+      <DependentUpon>FormAddUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAddVaccine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddVaccine.Designer.cs">
+      <DependentUpon>FormAddVaccine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAddVisit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddVisit.Designer.cs">
+      <DependentUpon>FormAddVisit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormChartPatientAndDiseases.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormChartPatientAndDiseases.Designer.cs">
+      <DependentUpon>FormChartPatientAndDiseases.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormChartPatientAndDrugs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormChartPatientAndDrugs.Designer.cs">
+      <DependentUpon>FormChartPatientAndDrugs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormChartPatientAndOperations.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormChartPatientAndOperations.Designer.cs">
+      <DependentUpon>FormChartPatientAndOperations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormChartPatientAndTreats.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormChartPatientAndTreats.Designer.cs">
+      <DependentUpon>FormChartPatientAndTreats.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormChartPatientAndVaccines.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormChartPatientAndVaccines.Designer.cs">
+      <DependentUpon>FormChartPatientAndVaccines.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLogin.Designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMenu.Designer.cs">
+      <DependentUpon>FormMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRptDiseasesByDate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRptDiseasesByDate.Designer.cs">
+      <DependentUpon>FormRptDiseasesByDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRptDiseasesOfPatient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRptDiseasesOfPatient.Designer.cs">
+      <DependentUpon>FormRptDiseasesOfPatient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRptDrugsByDate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRptDrugsByDate.Designer.cs">
+      <DependentUpon>FormRptDrugsByDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRptDrugsOfPatient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRptDrugsOfPatient.Designer.cs">
+      <DependentUpon>FormRptDrugsOfPatient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRptOperationsOfPatient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRptOperationsOfPatient.Designer.cs">
+      <DependentUpon>FormRptOperationsOfPatient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRptPatientsWithDisease.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRptPatientsWithDisease.Designer.cs">
+      <DependentUpon>FormRptPatientsWithDisease.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRptPatientsWithDrug.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRptPatientsWithDrug.Designer.cs">
+      <DependentUpon>FormRptPatientsWithDrug.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRptPatientsWithOperation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRptPatientsWithOperation.Designer.cs">
+      <DependentUpon>FormRptPatientsWithOperation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRptPatientsWithTreat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRptPatientsWithTreat.Designer.cs">
+      <DependentUpon>FormRptPatientsWithTreat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRptPatientsWithVaccine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRptPatientsWithVaccine.Designer.cs">
+      <DependentUpon>FormRptPatientsWithVaccine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRptTreatsByDate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRptTreatsByDate.Designer.cs">
+      <DependentUpon>FormRptTreatsByDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRptTreatsOfPatient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRptTreatsOfPatient.Designer.cs">
+      <DependentUpon>FormRptTreatsOfPatient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRptVaccinesByDate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRptVaccinesByDate.Designer.cs">
+      <DependentUpon>FormRptVaccinesByDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRptVaccinesOfPatient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRptVaccinesOfPatient.Designer.cs">
+      <DependentUpon>FormRptVaccinesOfPatient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRptVisitsByDate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRptVisitsByDate.Designer.cs">
+      <DependentUpon>FormRptVisitsByDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRptVisitsOfPatient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRptVisitsOfPatient.Designer.cs">
+      <DependentUpon>FormRptVisitsOfPatient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUpdatePatiDisease.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUpdatePatiDisease.Designer.cs">
+      <DependentUpon>FormUpdatePatiDisease.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTblCities.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTblCities.Designer.cs">
+      <DependentUpon>FormTblCities.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTblDiseases.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTblDiseases.Designer.cs">
+      <DependentUpon>FormTblDiseases.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTblOperations.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTblOperations.Designer.cs">
+      <DependentUpon>FormTblOperations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTblDrugs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTblDrugs.Designer.cs">
+      <DependentUpon>FormTblDrugs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTblPatientDiseases.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTblPatientDiseases.Designer.cs">
+      <DependentUpon>FormTblPatientDiseases.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTblPatientOperations.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTblPatientOperations.Designer.cs">
+      <DependentUpon>FormTblPatientOperations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTblPatients.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTblPatients.Designer.cs">
+      <DependentUpon>FormTblPatients.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTblPatientTreats.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTblPatientTreats.Designer.cs">
+      <DependentUpon>FormTblPatientTreats.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTblPatientVaccines.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTblPatientVaccines.Designer.cs">
+      <DependentUpon>FormTblPatientVaccines.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTblRoles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTblRoles.Designer.cs">
+      <DependentUpon>FormTblRoles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTblTreats.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTblTreats.Designer.cs">
+      <DependentUpon>FormTblTreats.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTblUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTblUsers.Designer.cs">
+      <DependentUpon>FormTblUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTblVaccines.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTblVaccines.Designer.cs">
+      <DependentUpon>FormTblVaccines.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTblVisits.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTblVisits.Designer.cs">
+      <DependentUpon>FormTblVisits.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTblPatientDrugs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTblPatientDrugs.Designer.cs">
+      <DependentUpon>FormTblPatientDrugs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUpdateDisease.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUpdateDisease.Designer.cs">
+      <DependentUpon>FormUpdateDisease.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUpdatePatiDrug.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUpdatePatiDrug.Designer.cs">
+      <DependentUpon>FormUpdatePatiDrug.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUpdatePatiOperation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUpdatePatiOperation.Designer.cs">
+      <DependentUpon>FormUpdatePatiOperation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUpdatePatiTreat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUpdatePatiTreat.Designer.cs">
+      <DependentUpon>FormUpdatePatiTreat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUpdatePatiVaccine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUpdatePatiVaccine.Designer.cs">
+      <DependentUpon>FormUpdatePatiVaccine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUpdateVaccine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUpdateVaccine.Designer.cs">
+      <DependentUpon>FormUpdateVaccine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUpdateDrug.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUpdateDrug.Designer.cs">
+      <DependentUpon>FormUpdateDrug.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUpdateOperation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUpdateOperation.Designer.cs">
+      <DependentUpon>FormUpdateOperation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUpdatePatient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUpdatePatient.Designer.cs">
+      <DependentUpon>FormUpdatePatient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUpdateTreats.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUpdateTreats.Designer.cs">
+      <DependentUpon>FormUpdateTreats.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUpdateUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUpdateUser.Designer.cs">
+      <DependentUpon>FormUpdateUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUpdateVisits.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUpdateVisits.Designer.cs">
+      <DependentUpon>FormUpdateVisits.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRptOperationsByDate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRptOperationsByDate.Designer.cs">
+      <DependentUpon>FormRptOperationsByDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormAddCity.resx">
+      <DependentUpon>FormAddCity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAddDisease.resx">
+      <DependentUpon>FormAddDisease.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAddDrug.resx">
+      <DependentUpon>FormAddDrug.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAddOperation.resx">
+      <DependentUpon>FormAddOperation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAddPatiDisease.resx">
+      <DependentUpon>FormAddPatiDisease.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAddPatiDrug.resx">
+      <DependentUpon>FormAddPatiDrug.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAddPatient.resx">
+      <DependentUpon>FormAddPatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAddPatiOperation.resx">
+      <DependentUpon>FormAddPatiOperation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAddPatiTreat.resx">
+      <DependentUpon>FormAddPatiTreat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAddPatiVaccine.resx">
+      <DependentUpon>FormAddPatiVaccine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAddRole.resx">
+      <DependentUpon>FormAddRole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAddTreat.resx">
+      <DependentUpon>FormAddTreat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAddUser.resx">
+      <DependentUpon>FormAddUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAddVaccine.resx">
+      <DependentUpon>FormAddVaccine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAddVisit.resx">
+      <DependentUpon>FormAddVisit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormChartPatientAndDiseases.resx">
+      <DependentUpon>FormChartPatientAndDiseases.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormChartPatientAndDrugs.resx">
+      <DependentUpon>FormChartPatientAndDrugs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormChartPatientAndOperations.resx">
+      <DependentUpon>FormChartPatientAndOperations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormChartPatientAndTreats.resx">
+      <DependentUpon>FormChartPatientAndTreats.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormChartPatientAndVaccines.resx">
+      <DependentUpon>FormChartPatientAndVaccines.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMenu.resx">
+      <DependentUpon>FormMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRptDiseasesByDate.resx">
+      <DependentUpon>FormRptDiseasesByDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRptDiseasesOfPatient.resx">
+      <DependentUpon>FormRptDiseasesOfPatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRptDrugsByDate.resx">
+      <DependentUpon>FormRptDrugsByDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRptDrugsOfPatient.resx">
+      <DependentUpon>FormRptDrugsOfPatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRptOperationsOfPatient.resx">
+      <DependentUpon>FormRptOperationsOfPatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRptPatientsWithDisease.resx">
+      <DependentUpon>FormRptPatientsWithDisease.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRptPatientsWithDrug.resx">
+      <DependentUpon>FormRptPatientsWithDrug.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRptPatientsWithOperation.resx">
+      <DependentUpon>FormRptPatientsWithOperation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRptPatientsWithTreat.resx">
+      <DependentUpon>FormRptPatientsWithTreat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRptPatientsWithVaccine.resx">
+      <DependentUpon>FormRptPatientsWithVaccine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRptTreatsByDate.resx">
+      <DependentUpon>FormRptTreatsByDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRptTreatsOfPatient.resx">
+      <DependentUpon>FormRptTreatsOfPatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRptVaccinesByDate.resx">
+      <DependentUpon>FormRptVaccinesByDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRptVaccinesOfPatient.resx">
+      <DependentUpon>FormRptVaccinesOfPatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRptVisitsByDate.resx">
+      <DependentUpon>FormRptVisitsByDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRptVisitsOfPatient.resx">
+      <DependentUpon>FormRptVisitsOfPatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTblCities.resx">
+      <DependentUpon>FormTblCities.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTblDiseases.resx">
+      <DependentUpon>FormTblDiseases.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTblDrugs.resx">
+      <DependentUpon>FormTblDrugs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTblOperations.resx">
+      <DependentUpon>FormTblOperations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTblPatientDiseases.resx">
+      <DependentUpon>FormTblPatientDiseases.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTblPatientOperations.resx">
+      <DependentUpon>FormTblPatientOperations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTblPatients.resx">
+      <DependentUpon>FormTblPatients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTblPatientTreats.resx">
+      <DependentUpon>FormTblPatientTreats.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTblPatientVaccines.resx">
+      <DependentUpon>FormTblPatientVaccines.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTblRoles.resx">
+      <DependentUpon>FormTblRoles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTblTreats.resx">
+      <DependentUpon>FormTblTreats.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTblUsers.resx">
+      <DependentUpon>FormTblUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTblVaccines.resx">
+      <DependentUpon>FormTblVaccines.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTblVisits.resx">
+      <DependentUpon>FormTblVisits.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTblPatientDrugs.resx">
+      <DependentUpon>FormTblPatientDrugs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUpdateDisease.resx">
+      <DependentUpon>FormUpdateDisease.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUpdatePatiDisease.resx">
+      <DependentUpon>FormUpdatePatiDisease.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUpdatePatiDrug.resx">
+      <DependentUpon>FormUpdatePatiDrug.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUpdatePatiOperation.resx">
+      <DependentUpon>FormUpdatePatiOperation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUpdatePatiTreat.resx">
+      <DependentUpon>FormUpdatePatiTreat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUpdatePatiVaccine.resx">
+      <DependentUpon>FormUpdatePatiVaccine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUpdateVaccine.resx">
+      <DependentUpon>FormUpdateVaccine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUpdateDrug.resx">
+      <DependentUpon>FormUpdateDrug.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUpdateOperation.resx">
+      <DependentUpon>FormUpdateOperation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUpdatePatient.resx">
+      <DependentUpon>FormUpdatePatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUpdateTreats.resx">
+      <DependentUpon>FormUpdateTreats.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUpdateUser.resx">
+      <DependentUpon>FormUpdateUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUpdateVisits.resx">
+      <DependentUpon>FormUpdateVisits.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRptOperationsByDate.resx">
+      <DependentUpon>FormRptOperationsByDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="DataSetCities.xsc">
+      <DependentUpon>DataSetCities.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetCities.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetCities.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetCities.xss">
+      <DependentUpon>DataSetCities.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetDiseases.xsc">
+      <DependentUpon>DataSetDiseases.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetDiseases.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetDiseases.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetDiseases.xss">
+      <DependentUpon>DataSetDiseases.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetDrugs.xsc">
+      <DependentUpon>DataSetDrugs.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetDrugs.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetDrugs.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetDrugs.xss">
+      <DependentUpon>DataSetDrugs.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetOperations.xsc">
+      <DependentUpon>DataSetOperations.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetOperations.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetOperations.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetOperations.xss">
+      <DependentUpon>DataSetOperations.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetPatientDiseases.xsc">
+      <DependentUpon>DataSetPatientDiseases.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetPatientDiseases.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetPatientDiseases.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetPatientDiseases.xss">
+      <DependentUpon>DataSetPatientDiseases.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetPatientDrugs.xsc">
+      <DependentUpon>DataSetPatientDrugs.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetPatientDrugs.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetPatientDrugs.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetPatientDrugs.xss">
+      <DependentUpon>DataSetPatientDrugs.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetPatientOperations.xsc">
+      <DependentUpon>DataSetPatientOperations.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetPatientOperations.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetPatientOperations.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetPatientOperations.xss">
+      <DependentUpon>DataSetPatientOperations.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetPatients.xsc">
+      <DependentUpon>DataSetPatients.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetPatients.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetPatients.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetPatients.xss">
+      <DependentUpon>DataSetPatients.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetPatientTreats.xsc">
+      <DependentUpon>DataSetPatientTreats.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetPatientTreats.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetPatientTreats.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetPatientTreats.xss">
+      <DependentUpon>DataSetPatientTreats.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetPatientVaccines.xsc">
+      <DependentUpon>DataSetPatientVaccines.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetPatientVaccines.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetPatientVaccines.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetPatientVaccines.xss">
+      <DependentUpon>DataSetPatientVaccines.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetRoles.xsc">
+      <DependentUpon>DataSetRoles.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetRoles.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetRoles.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetRoles.xss">
+      <DependentUpon>DataSetRoles.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetTreats.xsc">
+      <DependentUpon>DataSetTreats.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetTreats.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetTreats.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetTreats.xss">
+      <DependentUpon>DataSetTreats.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetUsers.xsc">
+      <DependentUpon>DataSetUsers.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetUsers.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetUsers.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetUsers.xss">
+      <DependentUpon>DataSetUsers.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetVaccines.xsc">
+      <DependentUpon>DataSetVaccines.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetVaccines.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetVaccines.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetVaccines.xss">
+      <DependentUpon>DataSetVaccines.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetVisits.xsc">
+      <DependentUpon>DataSetVisits.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetVisits.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetVisits.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetVisits.xss">
+      <DependentUpon>DataSetVisits.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
